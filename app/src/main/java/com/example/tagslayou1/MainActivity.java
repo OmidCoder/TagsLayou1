@@ -38,35 +38,43 @@ import co.lujun.androidtagview.TagView;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    private TagContainerLayout mTagContainerLayout1, mTagContainerLayout2, mTagContainerLayout3, mTagContainerLayout4, mTagContainerLayout5;
+    private TagContainerLayout mTagContainerLayout1, mTagContainerLayout2, mTagContainerLayout3,
+            mTagContainerLayout4, mTagContainerLayout5;//اسم لایه از tagview هامون
+
+
     private String[]city={"همدان" , "ملایر","نهاوند","لالجین" ,"تویسرکان",  "سرکان ,","سامن","فرسفج","ورامین","تهران","دماوند","لواسان",
             "اسلامشهر","فیروزکوه","دربندسر","سولقان","رودبار قصران","رباط کریم","طالقان","کرج","هشتگرد","کردان","نظرآباد","شهرستانک",
             "قزوین","ابهر","تاکستان","بوئین زهرا","ابگرم قزوین","سرعین","اردبیل","مشگین شهر","خلخال","نیر","پارس آباد","گرمی","عنبران",
             "رضی","نمین","بیله سوار","گرگان","بندرترکمن","کلاله","علی آباد کتول","گنبد کاووس","رامیان","مینودشت","گالیکش","آزادشهر",	"مرواه تپه",
-            "کردکوی"};
+            "کردکوی"};//spinnerبرای  ا اسم شهر های هر استان به صورت کلی
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_main );
 
-        Typeface tf= Typeface.createFromAsset(getAssets(),"font/farkoodak.ttf");
-        List<String> list1 = new ArrayList<String>();
+        Typeface tf= Typeface.createFromAsset(getAssets(),"font/farkoodak.ttf");  // فونت دادن برای لیست tag view , edt Text
+        List<String> list1 = new ArrayList<String>();   //ست انتاب کردن لیست شماره یک برای tagView
         list1.add( "تجهیزات آرایشگری" );
         list1.add( "لباس پوشاک" );
         list1.add( "غذا و خوراک" );
         list1.add( "تجهیزات پزشکی");
 
-        List<String> list2 = new ArrayList<String>();
+        List<String> list2 = new ArrayList<String>();   //ست انتاب کردن لیست شماره دوم برای tagView
         list2.add( "اسباب بازی فروشی" );
         list2.add( "خوشکبار" );
         list2.add( "سوپرمارکتی" );
         list2.add( "کفش" );
 
 
-        String[] list3 = new String[]{"کاپشن", "لباس زیر"};
-        String[] list4 = new String[]{"گوسفند", "مرغ "};
-        List<String> list5 = new ArrayList<String>();
+        String[] list3 = new String[]{"کاپشن","کفش چرم" ,"کاپشن کوه نوردی","کفش کوهنوردی"};   //ست انتاب کردن لیست شماره سوم برای tagView
+
+
+
+        String[] list4 = new String[]{"گوسفند","گاو","گوساله", "شتر مرغ","مرغ "};  //ست انتاب کردن لیست شماره چهارم برای tagView
+
+
+        List<String> list5 = new ArrayList<String>();    //ست انتاب کردن لیست شماره پنجم برای tagView
         list5.add( "ماشین اصلاح" );
         list5.add( "لباس بچگانه" );
         list5.add( "متور ماشین" );
@@ -75,22 +83,24 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         intiti();
         layout3();
         spinner();
-        mTagContainerLayout1.setTags( list1 );
+        mTagContainerLayout1.setTags( list1 );   // اشضافه کردن لیست شماره یک به tagView شماره یک
         mTagContainerLayout1.setTagTextDirection(View.TEXT_DIRECTION_RTL);
-        mTagContainerLayout1.setTagTypeface( tf);
-        mTagContainerLayout1.setTheme(ColorFactory.PURE_CYAN);
-        mTagContainerLayout1.setTheme(ColorFactory.NONE);
-        mTagContainerLayout1.setTagBackgroundColor(Color.TRANSPARENT);
-        mTagContainerLayout2.setTags( list2 );
-        mTagContainerLayout2.setTagTypeface( tf);
+        mTagContainerLayout1.setTagTypeface( tf);  //اضافخ کردن فونت به tagView شماره یک
+        mTagContainerLayout1.setTheme(ColorFactory.PURE_CYAN);  //تنظیم  تم سفارشی
+        mTagContainerLayout1.setTheme(ColorFactory.NONE);    //تنظیم  تم سفارشی
+        mTagContainerLayout1.setTagBackgroundColor(Color.TRANSPARENT); //    //تنظیم  تم سفارشی
+
+
+        mTagContainerLayout2.setTags( list2 );   // اشضافه کردن لیست شماره دو به tagView شماره دو
+        mTagContainerLayout2.setTagTypeface( tf);    //اضافخ کردن فونت به tagView شماره دوم
         mTagContainerLayout2.setTagTextDirection(View.TEXT_DIRECTION_RTL);
 
-        mTagContainerLayout3.setTags( list3 );
-        mTagContainerLayout3.setTagTypeface( tf);
+        mTagContainerLayout3.setTags( list3 );   // اشضافه کردن لیست شماره سوم به tagView شماره سوم
+        mTagContainerLayout3.setTagTypeface( tf);   //اضافخ کردن فونت به tagView شماره دوم
         mTagContainerLayout3.setTagTextDirection(View.TEXT_DIRECTION_RTL);
 
-        mTagContainerLayout4.setTags( list4 );
-        mTagContainerLayout4.setTagTypeface( tf);
+        mTagContainerLayout4.setTags( list4 );   // اشضافه کردن لیست شماره چهارم به tagView شماره چهارم
+        mTagContainerLayout4.setTagTypeface( tf);    //اضافخ کردن فونت به tagView شماره دوم
         mTagContainerLayout4.setTagTextDirection(View.TEXT_DIRECTION_RTL);
 
 
@@ -111,12 +121,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         final EditText text =(EditText) findViewById( R.id.text_tag );
 
-        text.setTypeface( tf);
+        text.setTypeface( tf); // فونت دادن به ادیت تکست
                 Button btnaddTag =(Button) findViewById( R.id.btn_add_tag );
         btnaddTag.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mTagContainerLayout1.addTag( text.getText().toString() );
+                mTagContainerLayout1.addTag( text.getText().toString() );//برای گرفتن متن
 
             }
         } );
@@ -255,12 +265,15 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     }
     private void spinner(){
+
+        //امال spinner روی ان
         Spinner spinner=findViewById( R.id.simpleSpinner);
         spinner.setOnItemSelectedListener(  this );
+        //ایجاد rrayAdapterروی ان
         ArrayAdapter adapter=new ArrayAdapter( this, android.R.layout.simple_spinner_item,city);
-        spinner.setAdapter( adapter);
+        spinner.setAdapter( adapter);  //تنظیم داده هایarrayAdapterروی spinner
     }
-
+        //انجام عمل onItemSelected و onNothing انتخاب شده است
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         Toast.makeText(getApplicationContext(), city[position], Toast.LENGTH_LONG).show();
@@ -268,6 +281,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
+        // TODO روش خرد روش تولید شده به صورت خودکار
 
     }
 }
